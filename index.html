@@ -22,7 +22,26 @@
   
   <script>
 
-    const transactionInput = 
+    const transactionInput = document.getElementById("transactionInput");
+    const amountInput = document.getElementById("amountInput");
+    const addButton = document.getElementById("addButton");
+    const expenseList = document.getElementById("expenseList");
+
+    addButton.addEventListener("click", function(){
+      const listItem = document.createElement('li');
+
+      listItem.innerHTML = `${transactionInput.value} Rs.${amountInput.value}.00
+      <button id="deleteBtn" onClick="deleteListItem(this)">Delete</button>`
+
+      expenseList.appendChild(listItem);
+      
+    });
+
+    function deleteListItem(deleteBtn)
+    {
+       const listItem = deleteBtn.parentElement;
+      listItem.remove();
+    };
     
   </script>
 </body>
